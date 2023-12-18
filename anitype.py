@@ -9,7 +9,7 @@ class Client():
 	def login(self,code):
 	    data={"code":code}
 	    req=requests.post(f"{self.api}/app2/auth/email/login",json=data,headers=self.headers).json()
-	    self.headers['Authorization']=f"req['type']req['accessToken']"
+	    self.headers['Authorization']=f"{req['type']} {req['accessToken']}"
 	    return req
 	def status(self):
 	    return requests.get(f"https://anitype.site/dj/recs/status",headers=self.headers).json()
