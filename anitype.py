@@ -21,7 +21,7 @@ class Client():
 	def releases_selections(self,review,releaseId,selectionId):
 	    data={"selectionId":selectionId,"releaseId":releaseId,"review":review}
 	    return requests.post(f"{self.api}/app2/selections/releases",json=data,headers=self.headers).json()
-	def rates_post(self):
+	def rates_post(self,anime_id,value):
 	    data={"anime_id":anime_id,"value":value}
 	    return requests.post(f"{self.api}/dj/rates/auth/",json=data,headers=self.headers).json()
 	def add_folders(self,releaseId,folderTitle:str="Буду смотреть",base:str="anime"):
